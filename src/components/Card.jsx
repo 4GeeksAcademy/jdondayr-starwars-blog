@@ -14,9 +14,7 @@ const Card = (props) => {
                     <h5 className="card-title">{props.title}</h5>
                     <ul>{props.description}</ul>
                     <div className="d-flex justify-content-between">
-                        <Link to={`/single/${props.elementType}/${props.elementId}`}>
-                            <button type="button" className="btn btn-outline-primary">Learn more!</button>
-                        </Link>
+                        <Link to={`/single/${props.elementType}/${props.elementId}`}><button type="button" className="btn btn-outline-primary">Learn more!</button></Link>
                         <button type="button" onClick={props.onClickFunction} className="btn btn-outline-warning"><i className={props.classes}></i></button>
                     </div>
                 </div>

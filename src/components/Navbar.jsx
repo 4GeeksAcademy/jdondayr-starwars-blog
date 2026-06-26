@@ -29,11 +29,12 @@ export const Navbar = () => {
 					<img src="src/assets/img/star-wars.png" alt="star wars logo" width="90" />
 				</Link>
 				<div className="dropdown">
-					<a className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle={store.favoritesCounter === 0 ? "none" : "dropdown"} aria-expanded="false">
+					<a className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Favorites <span className="bg-light text-dark px-1 py-0 rounded">{store.favoritesCounter}</span>
 					</a>
 
 					<ul className="dropdown-menu">
+						<li className="dropdown-item" style={{display: store.favoritesCounter === 0 ? "block" : "none"}}>Empty</li>
 						{favorites}
 					</ul>
 				</div>

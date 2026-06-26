@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useEffect } from "react";
 
-export const Single = () => {
+export const SingleCharacter = () => {
 
   const { store, dispatch } = useGlobalReducer()
   const { type, id } = useParams()

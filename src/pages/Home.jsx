@@ -78,8 +78,8 @@ export const Home = () => {
 			alt={planet.name}
 			title={planet.name}
 			description={<>
-				<li><strong>Population:</strong>{planet.population}</li>
-				<li><strong>Terrain:</strong>{planet.terrain}</li>
+				<li><strong>Population: </strong>{planet.population}</li>
+				<li><strong>Terrain: </strong>{planet.terrain}</li>
 			</>}
 			elementType="planets"
 			elementId={id}
