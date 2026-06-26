@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useEffect } from "react";
 
-export const SingleCharacter = () => {
+export const SinglePlanet = () => {
 
   const { store, dispatch } = useGlobalReducer()
   const { id } = useParams()
 
   async function getElementDataFromAPI() {
     try {
-      const response = await fetch(`https://swapi.info/api/people/${id}`);
+      const response = await fetch(`https://swapi.info/api/planets/${id}`);
       if (response.ok) {
         const data = await response.json();
         dispatch({ type: "get_single_element", payload: data })
@@ -39,24 +39,24 @@ export const SingleCharacter = () => {
           <h4 className="text-primary">{store.singleElement.name}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Birth year</h3>
-          <h4 className="text-primary">{store.singleElement.birth_year}</h4>
+          <h3 className="text-primary">Rotation period</h3>
+          <h4 className="text-primary">{store.singleElement.rotation_period}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Gender</h3>
-          <h4 className="text-primary">{store.singleElement.gender}</h4>
+          <h3 className="text-primary">Diameter</h3>
+          <h4 className="text-primary">{store.singleElement.diameter}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Height</h3>
-          <h4 className="text-primary">{store.singleElement.height}</h4>
+          <h3 className="text-primary">Climate</h3>
+          <h4 className="text-primary">{store.singleElement.climate}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Skin color</h3>
-          <h4 className="text-primary">{store.singleElement.skin_color}</h4>
+          <h3 className="text-primary">Terrain</h3>
+          <h4 className="text-primary">{store.singleElement.terrain}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Eye color</h3>
-          <h4 className="text-primary">{store.singleElement.eye_color}</h4>
+          <h3 className="text-primary">Surface water</h3>
+          <h4 className="text-primary">{store.singleElement.surface_water}</h4>
         </div>
       </div>
     </>

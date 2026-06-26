@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useEffect } from "react";
 
-export const SingleCharacter = () => {
+export const SingleVehicle = () => {
 
   const { store, dispatch } = useGlobalReducer()
   const { id } = useParams()
 
   async function getElementDataFromAPI() {
     try {
-      const response = await fetch(`https://swapi.info/api/people/${id}`);
+      const response = await fetch(`https://swapi.info/api/vehicles/${id}`);
       if (response.ok) {
         const data = await response.json();
         dispatch({ type: "get_single_element", payload: data })
@@ -39,24 +39,24 @@ export const SingleCharacter = () => {
           <h4 className="text-primary">{store.singleElement.name}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Birth year</h3>
-          <h4 className="text-primary">{store.singleElement.birth_year}</h4>
+          <h3 className="text-primary">Manufacturer</h3>
+          <h4 className="text-primary">{store.singleElement.manufacturer}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Gender</h3>
-          <h4 className="text-primary">{store.singleElement.gender}</h4>
+          <h3 className="text-primary">Vehicle class</h3>
+          <h4 className="text-primary">{store.singleElement.vehicle_class}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Height</h3>
-          <h4 className="text-primary">{store.singleElement.height}</h4>
+          <h3 className="text-primary">Cost in credits</h3>
+          <h4 className="text-primary">{store.singleElement.cost_in_credits}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Skin color</h3>
-          <h4 className="text-primary">{store.singleElement.skin_color}</h4>
+          <h3 className="text-primary">Passengers capacity</h3>
+          <h4 className="text-primary">{store.singleElement.cargo_capacity}</h4>
         </div>
         <div className="d-flex flex-column align-items-center gap-2">
-          <h3 className="text-primary">Eye color</h3>
-          <h4 className="text-primary">{store.singleElement.eye_color}</h4>
+          <h3 className="text-primary">Length</h3>
+          <h4 className="text-primary">{store.singleElement.length}</h4>
         </div>
       </div>
     </>

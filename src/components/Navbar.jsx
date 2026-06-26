@@ -14,11 +14,11 @@ export const Navbar = () => {
 		const id = favoriteElement.url.split("/").at(-1);
 		const type = favoriteElement.url.split("/").at(-2);
 		return <li key={favoriteElement.url} className="d-flex align-items-center justify-content-between">
-			<Link to={`/single/${type}/${id}`}><button className="dropdown-item">{favoriteElement.name}</button></Link>
+			<Link to={`/${type}/${id}`}><button className="dropdown-item">{favoriteElement.name}</button></Link>
 			<span onClick={(ev) => {
 				removeElementFromFavorites(favoriteElement.name);
 				ev.stopPropagation();
-				}} className="me-2"><i class="fa-solid fa-trash-can"></i></span>
+				}} className="me-2"><i className="fa-solid fa-trash-can"></i></span>
 		</li>
 	})
 

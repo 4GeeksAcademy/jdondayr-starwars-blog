@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { Link } from "react-router-dom";
 // Components imports
 import Card from "../components/Card.jsx";
 import { element } from "prop-types";
@@ -44,8 +45,7 @@ export const Home = () => {
 				<li><strong>Hair Color:</strong> {character.hair_color}</li>
 				<li><strong>Eye Color:</strong> {character.eye_color}</li>
 			</>}
-			elementType="people"
-			elementId={id}
+			singleLink={<Link to={`/people/${id}`}><button type="button" className="btn btn-outline-primary">Learn more!</button></Link>}
 			onClickFunction={()=>addElementToFavorites(character)}
 			classes={`${store.favorites.includes(character) ? "fa-solid" : "fa-regular"} fa-heart`}
 		/>
@@ -63,8 +63,7 @@ export const Home = () => {
 				<li><strong>Class:</strong> {vehicle.vehicle_class}</li>
 				<li><strong>Length:</strong> {vehicle.length}</li>
 			</>}
-			elementType="vehicles"
-			elementId={id}
+			singleLink={<Link to={`/vehicles/${id}`}><button type="button" className="btn btn-outline-primary">Learn more!</button></Link>}
 			onClickFunction={() => addElementToFavorites(vehicle)}
 			classes={`${store.favorites.includes(vehicle) ? "fa-solid" : "fa-regular"} fa-heart`}
 		/>
@@ -81,8 +80,7 @@ export const Home = () => {
 				<li><strong>Population: </strong>{planet.population}</li>
 				<li><strong>Terrain: </strong>{planet.terrain}</li>
 			</>}
-			elementType="planets"
-			elementId={id}
+			singleLink={<Link to={`/planets/${id}`}><button type="button" className="btn btn-outline-primary">Learn more!</button></Link>}
 			onClickFunction={() => addElementToFavorites(planet)}
 			classes={`${store.favorites.includes(planet) ? "fa-solid" : "fa-regular"} fa-heart`}
 		/>

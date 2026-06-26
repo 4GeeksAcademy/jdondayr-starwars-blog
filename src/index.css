@@ -17,6 +17,7 @@ h1 {
     color: #016FAB;
     text-shadow: 0px 0px 1.3px #016FAB;
 }
+.border-primary {border-color: #016FAB;}
 
 .btn-primary {
     background-color: #016FAB;
@@ -30,6 +31,8 @@ h1 {
     background-color: #016FAB;
     border-color: #016FAB;
 }
+
+.text-primary {color: #016FAB}
 
 a {
     text-decoration: none;

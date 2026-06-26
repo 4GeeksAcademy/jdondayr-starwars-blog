@@ -8,6 +8,8 @@ import {
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { SingleCharacter } from "./pages/SingleCharacter";
+import {SingleVehicle} from "./pages/SingleVehicle";
+import { SinglePlanet } from "./pages/SinglePlanet";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +24,8 @@ export const router = createBrowserRouter(
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
         <Route path="/people/:id" element={ <SingleCharacter />} />  {/* Dynamic route for single items */}
+        <Route path="/vehicles/:id" element={<SingleVehicle />} />
+        <Route path="/planets/:id" element={<SinglePlanet />} />
       </Route>
     )
 );
