@@ -3,7 +3,24 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 export const Navbar = () => {
 
-	const {store, dispatch} = useGlobalReducer()
+	const { store, dispatch } = useGlobalReducer()
+
+	const removeElementFromFavorites = (nameOfTheElement) => {
+		const newFavoritesArray = store.favorites.filter(favoriteElement => favoriteElement.name != nameOfTheElement);
+		dispatch({ type: "remove_from_favorites", payload: newFavoritesArray })
+	}
+
+	const favorites = store.favorites.map((favoriteElement) => {
+		const id = favoriteElement.url.split("/").at(-1);
+		const type = favoriteElement.url.split("/").at(-2);
+		return <li key={favoriteElement.url} className="d-flex align-items-center justify-content-between">
+			<Link to={`/single/${type}/${id}`}><button className="dropdown-item">{favoriteElement.name}</button></Link>
+			<span onClick={(ev) => {
+				removeElementFromFavorites(favoriteElement.name);
+				ev.stopPropagation();
+				}} className="me-2"><i class="fa-solid fa-trash-can"></i></span>
+		</li>
+	})
 
 	return (
 		<nav className="navbar bg-body-tertiary">
@@ -12,14 +29,12 @@ export const Navbar = () => {
 					<img src="src/assets/img/star-wars.png" alt="star wars logo" width="90" />
 				</Link>
 				<div className="dropdown">
-					<a className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Favorites <span className="bg-secondary p-1 rounded">{store.favoritesCounter}</span>
+					<a className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle={store.favoritesCounter === 0 ? "none" : "dropdown"} aria-expanded="false">
+						Favorites <span className="bg-light text-dark px-1 py-0 rounded">{store.favoritesCounter}</span>
 					</a>
 
 					<ul className="dropdown-menu">
-						<li><a className="dropdown-item" href="#">Action</a></li>
-						<li><a className="dropdown-item" href="#">Another action</a></li>
-						<li><a className="dropdown-item" href="#">Something else here</a></li>
+						{favorites}
 					</ul>
 				</div>
 			</div>

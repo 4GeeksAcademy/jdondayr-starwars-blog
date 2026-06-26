@@ -9,17 +9,45 @@ ul li {
 
 ul {padding: 0}
 
-h5 {
+h6 {
     text-shadow: 0px 0px 1.3px black;
 }
 
 h1 {
-    color: rgb(214, 105, 105);
-    text-shadow: 0px 0px 1.3px rgb(214, 105, 105);
+    color: #016FAB;
+    text-shadow: 0px 0px 1.3px #016FAB;
+}
+
+.btn-primary {
+    background-color: #016FAB;
+    border-color: #016FAB;
+}
+.btn-outline-primary {
+    color: #016FAB;
+    border-color: #016FAB;
+}
+.btn-outline-primary:hover {
+    background-color: #016FAB;
+    border-color: #016FAB;
+}
+
+a {
+    text-decoration: none;
+}
+
+i:hover {
+    cursor: pointer;
 }
 
 .card {
     border: 2px solid slategray;
     padding: 5px;
     box-shadow: 0px 0px 4px slategray;
+}
+
+.empty-photo {
+    height: 400px;
+    width: 550px;
+    background-color: lightgray;
+    border-radius: 20px;
 }
